@@ -10,6 +10,7 @@
           background-image: url('http://www.technocrazed.com/wp-content/uploads/2015/12/London-wallpaper-24.jpg')
         }
     </style>
+    <script defer src='API.js'> </script>
     <script defer src='index.js'> </script>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="london_tube.png">
@@ -20,25 +21,20 @@
     <div id="main-container">
         <div id = "map-container">
             <img id="map" src=''/>
-            <img id="overlay">
         </div>
 
         <div id="welcome-container">
             <div id="welcome-username">WELCOME!!
                <input class = "input" type="text" placeholder="enter username..">
-               <form class ="radio-btns" action="">
+               <div id="radio-btns" action="">
                     <input type="radio" name="difficulty" value="easy"> Easy<br>
                     <input type="radio" name="difficulty" value="medium"> Medium<br>
                     <input type="radio" name="difficulty" value="hard"> Hard
-                  </form>
-
+                </div>
                <button id="submit-un-btn">Submit</button>
             </div>
-            
         </div>
-            
-
-
+        
         </div>
     </div>
 </body>
