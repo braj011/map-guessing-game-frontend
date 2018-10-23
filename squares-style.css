@@ -1,0 +1,28 @@
+#main-container {
+  width: 720px;
+  height: 720px;
+  margin: auto;
+  display: flex;
+  wrap: wrap;
+  position: relative; 
+} 
+
+#map-container {
+  position: relative; 
+  display: flex;
+} 
+
+#map {
+
+  width: 720px;
+  height: 720px;
+}
+
+.square {
+  height: 240px;
+  width: 240px;
+  background-color: black;
+  opacity: 1;
+  z-index: 1;
+  position: absolute;
+}
