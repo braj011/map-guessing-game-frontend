@@ -3,16 +3,43 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My Google Map</title>
+    <title>Map Guessing Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+          background-image: url('http://www.technocrazed.com/wp-content/uploads/2015/12/London-wallpaper-24.jpg')
+        }
+    </style>
     <script defer src='index.js'> </script>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="london_tube.png">
+    
 </head>
   <body>
     <h1>My Google map</h1>
-    <div id = "map-container">
-        <img id="map" src=''/>
-        <img id="overlay">
+    <div id="main-container">
+        <div id = "map-container">
+            <img id="map" src=''/>
+            <img id="overlay">
+        </div>
+
+        <div id="welcome-container">
+            <div id="welcome-username">WELCOME!!
+               <input class = "input" type="text" placeholder="enter username..">
+               <form class ="radio-btns" action="">
+                    <input type="radio" name="difficulty" value="easy"> Easy<br>
+                    <input type="radio" name="difficulty" value="medium"> Medium<br>
+                    <input type="radio" name="difficulty" value="hard"> Hard
+                  </form>
+
+               <button id="submit-un-btn">Submit</button>
+            </div>
+            
+        </div>
+            
+
+
+        </div>
     </div>
 </body>
 </html>

@@ -1,3 +1,13 @@
+body {
+  background-image: url("http://bsnscb.com/data/out/118/39743314-london-wallpapers.jpg");
+}
+
+#main-container {
+  width: 720px;
+  height: 720px;
+  margin: auto;
+} 
+
 #map-container {
   display:flex;
   height: 100%;
@@ -11,7 +21,7 @@
   position: absolute;
   width: 720px;
   height: 720px;
-  background-color: rgba(0,0,0,1);
+  background-color: rgba(0,0,0,0.5);
   z-index: 1;
 } 
 #map {
@@ -19,4 +29,38 @@
   width: 720px;
   height: 720px;
 
+}
+
+#welcome-container {
+  display: block;
+  height: 100%;
+  width: fit-content;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  /* position: relative; */
+} 
+
+#welcome-username {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2rem;
+  font-size: 4rem;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+  text-align: center;
+  border: 2px solid black;
+} 
+
+.input {
+  border-color: blue; 
+  margin-bottom: 1rem; 
+}
+
+.radio-btns {
+  font-size: 2rem;
 }
