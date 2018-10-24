@@ -43,6 +43,3 @@ function fadeRandomSquare() {
   fadeSquare(squares[index])
 }
 
-function randomNum(limit) {
-  return Math.floor(Math.random() * limit)
-}

@@ -40,24 +40,10 @@ difficultyContainer.addEventListener('click', event => {
   } else if (event.target.classList.contains('difficulty')) {
     nameDisplay.innerText = nameInput.value
     let selectedDif = event.target.id
-    API.getRandomLocation()
-      .then(data => {
-        let lat = data.latitude
-        let lon = data.longitude
-        let zoom 
-        switch (selectedDif) {
-          case "easy":
-            zoom = 14 
-            break
-          case "medium":
-            zoom = 15 
-            break
-          case "hard":
-            zoom = 16 
-            break
-        }
-        mapOnWelcomeOff()
-        updateMap(lat, lon, zoom)
-      })
-    }
+    game(selectedDif)
+  }
 })
+
+function randomNum(limit) {
+  return Math.floor(Math.random() * limit)
+}

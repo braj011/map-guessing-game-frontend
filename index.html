@@ -9,6 +9,7 @@
   <script defer src='index.js'></script>
   <script defer src='squares.js'></script>
   <script defer src='timer.js'></script>
+  <script defer src='game.js'></script>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link rel="shortcut icon" href="london_tube.png">
@@ -17,26 +18,35 @@
 <body>
   <h1 class="arcade-text">LDN Knowledge</h1>
 
-  <div id="score-container" class="arcade-text">
-    <div id="name-display">Player</div>
-    <div id="game-timer-display">40s</div>
-    <div id="game-score-display">100</div>
-  </div>
+  <div id="whole-game-container">
 
-  <div id="main-container">
-    <div id="map-container">
-      <img id="map" src=''/>
-    </div>
-    <div id="welcome-container">
-      <div id="welcome-username">WELCOME!!
-        <input class="input" type="text" id="name-input" placeholder="Name..?"  maxlength="8" autocomplete="off" autofocus required size="9">
+    <div id="main-game-container">
+      <div id="score-container">
+        <div id="name-display" class='col-3-left'>Player</div>
+        <div id="game-timer-display" class='col-3'>40s</div>
+        <div id="game-score-display" class='col-3-right'>100</div>
       </div>
-      <div id="difficulty-container">
-        <div id="easy" class="difficulty hvr-bounce-in">Easy</div>
-        <div id="medium" class="difficulty hvr-bounce-in">Medium</div>
-        <div id="hard" class="difficulty hvr-bounce-in">Hard</div>
+
+      <div id="map-main-container">
+        <div id="map-container">
+          <img id="map" src=''/>
+        </div>
+        <div id="welcome-container">
+          <div id="welcome-username">WELCOME!!
+            <input class="input" type="text" id="name-input" placeholder="Name..?"  maxlength="8" autocomplete="off" autofocus required size="9">
+          </div>
+          <div id="difficulty-container">
+            <div id="easy" class="difficulty hvr-bounce-in">Easy</div>
+            <div id="medium" class="difficulty hvr-bounce-in">Medium</div>
+            <div id="hard" class="difficulty hvr-bounce-in">Hard</div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <div id="guess-container">
+    </div>
+
   </div>
 
 </body>

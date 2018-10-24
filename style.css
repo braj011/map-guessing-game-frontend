@@ -2,26 +2,33 @@ body {
   /* background-image: url("http://bsnscb.com/data/out/118/38900714-london-wallpapers.jpg"); */
   text-align: center;
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #F8DE7E;
   font-family: 'Press Start 2P', cursive;
 }
 
-.arcade-text {
-  font-family: 'Press Start 2P', cursive;
+#whole-game-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center; 
+  padding-top: 30px;
 }
 
-.flash-text {
-
+#main-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#main-container {
+#map-main-container {
   width: 480px;
   height: 480px;
   margin: auto;
   display: flex;
-  justify-content: center;
   position: relative;
   border: solid black 10px;
   color: chartreuse;
@@ -29,12 +36,14 @@ body {
   background: white;
 }
 
+/* top bar styling */
+
 #score-container {
   height: 30px;
-  width: 460px;
+  width: 450px;
   border: solid black 8px;
   border-bottom: 0px;
-  border-radius: 5px;
+  border-radius: 6px;
   background: black;
   color: chartreuse;
   display: flex;
@@ -43,16 +52,40 @@ body {
   padding: 0 10px 0;
 }
 
+.col-3 {
+  width: 33%;
+}
+
+.col-3-left {
+  width: 33%;
+  text-align: left;
+}
+
+.col-3-right {
+  width: 33%;
+  text-align: right;
+}
+
+/* map and overlay */
 #map-container {
   display: relative;
 } 
 
 #map {
-  width: 480px;
-  height: 480px;
   background: black;
 }
 
+.square {
+  height: 160px;
+  width: 160px;
+  background-image: url('images/london-night.jpg');
+  background-size: contain;
+  opacity: 1;
+  z-index: 1;
+  position: absolute;
+}
+
+/* name and difficulty select */
 #welcome-container {
   width: 100%;
   flex-direction: column;
@@ -76,17 +109,8 @@ body {
 
 .input:focus {
     outline: none;
-    border: 2px solid chartreuse;
-}
-
-.square {
-  height: 160px;
-  width: 160px;
-  background-image: url('images/london-night.jpg');
-  background-size: contain;
-  opacity: 1;
-  z-index: 1;
-  position: absolute;
+    border: 3px solid chartreuse;
+    border-radius: 6px;
 }
 
 #difficulty-container {
@@ -111,4 +135,14 @@ body {
   transform: scale(1.2);
   -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+/* guessing box */
+
+#guess-container {
+  height: 450px;
+  width: 250px;
+  background: black;
+  border-radius: 10px;
+  margin-left: 50px;
 }
