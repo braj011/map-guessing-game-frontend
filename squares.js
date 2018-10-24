@@ -43,3 +43,7 @@ function fadeRandomSquare() {
   fadeSquare(squares[index])
 }
 
+function removeFirstSquare() {
+  let index = randomNum(squares.length)
+  squares[index].style.opacity = 0
+}

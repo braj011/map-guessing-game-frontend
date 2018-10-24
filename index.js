@@ -9,24 +9,29 @@ const getMapUrl = (lat, lon, zoom) =>
 const updateMap = (lat, lon, zoom) => {
   const imgEl = document.querySelector('#map')
   imgEl.onload = function() {
+    removeFirstSquare()
     fadeRandomSquare()
-    setTimeout(countDown, 1000, 40)
+    setTimeout(countDown, 1000, 30)
   } 
   imgEl.src = getMapUrl(lat, lon, zoom)
 }
 
 // toggle mapContainer & welcomeContainer display
 const mapContainer = document.getElementById('map-container')
-let welcomeContainer = document.getElementById('welcome-container')
-mapContainer.style.display = 'none'
-welcomeContainer.style.display = 'flex'
+const welcomeContainer = document.getElementById('welcome-container')
+const highScores = document.getElementById('high-scores')
+const guesses = document.getElementById('guesses')
 
 function mapOffWelcomeOn () {
   mapContainer.style.display = 'none'
+  highScores.style.display = 'block'
+  guesses.style.display = 'none'
   welcomeContainer.style.display = 'flex'
 }
 function mapOnWelcomeOff () {
   displaySquares()
+  highScores.style.display = 'none'
+  guesses.style.display = 'block'
   mapContainer.style.display = 'flex'
   welcomeContainer.style.display = 'none'
 }
