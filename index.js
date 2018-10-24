@@ -11,7 +11,6 @@ const updateMap = (lat, lon, zoom) => {
   imgEl.onload = function() {
     removeFirstSquare()
     fadeRandomSquare()
-    setTimeout(countDown, 1000, 30)
   } 
   imgEl.src = getMapUrl(lat, lon, zoom)
 }

@@ -28,12 +28,13 @@ const game = function (difficulty) {
       updateMap(lat, lon, zoom)
       options.forEach(renderGuess)
       timer = setInterval(countDown, 1000)
+      console.log(timer)
     })
 
   function renderGuess(option) {
     optionEl = document.createElement('tr')
     optionEl.innerHTML = `
-      <td class="guess hvr-bounce-in" data-district=${option.district}>
+      <td class="guess hvr-bounce-in" data-district="${option.district}">
         ${option.district}
       </td>
     `
@@ -60,13 +61,8 @@ const game = function (difficulty) {
     }
   }
 
-  function timer(start=true) {
-    if (start===false) {
-      stopGame()
-    }
-  }
-
   function stopGame() {
+    squares.forEach(square => square.style.opacity = 0)
     clearInterval(timer)
     console.log('Game stopped')
   }
