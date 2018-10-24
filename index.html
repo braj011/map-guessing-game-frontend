@@ -27,20 +27,16 @@
     <div id="map-container">
       <img id="map" src=''/>
     </div>
-
     <div id="welcome-container">
       <div id="welcome-username">WELCOME!!
-        <input class="input" type="text" id="name-input" placeholder="enter username.." autofocus>
+        <input class="input" type="text" id="name-input" placeholder="Name..?"  maxlength="8" autocomplete="off" autofocus required size="9">
       </div>
-      <div id="radio-btns">
-        <input type="radio" name="difficulty" value="easy"> Easy<br>
-        <input type="radio" name="difficulty" value="medium"> Medium<br>
-        <input type="radio" name="difficulty" value="hard"> Hard
-      </div>
-          <button id="submit-un-btn">GO!</button>
+      <div id="difficulty-container">
+        <div id="easy" class="difficulty hvr-bounce-in">Easy</div>
+        <div id="medium" class="difficulty hvr-bounce-in">Medium</div>
+        <div id="hard" class="difficulty hvr-bounce-in">Hard</div>
       </div>
     </div>
-  
   </div>
 
 </body>
