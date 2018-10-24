@@ -8,10 +8,6 @@ const getMapUrl = (lat, lon, zoom) =>
 
 const updateMap = (lat, lon, zoom) => {
   const imgEl = document.querySelector('#map')
-  imgEl.onload = function() {
-    removeFirstSquare()
-    fadeRandomSquare()
-  } 
   imgEl.src = getMapUrl(lat, lon, zoom)
 }
 

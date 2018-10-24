@@ -3,8 +3,12 @@ const game = function (difficulty) {
   const options = []
   const winner = {}
   const timeDisplay = document.getElementById('game-timer-display')
+  const scoreDisplay = document.getElementById('game-score-display')
+  const readyText = document.getElementById('ready')
   let timer
   let seconds = 30
+  let scoreTick
+  let score = 1000
 
   API.getRandomLocation()
     .then(data => { 
@@ -25,11 +29,19 @@ const game = function (difficulty) {
           break
       }
       mapOnWelcomeOff()
+      readyText.style.display='block'
       updateMap(lat, lon, zoom)
       options.forEach(renderGuess)
-      timer = setInterval(countDown, 1000)
-      console.log(timer)
+      setTimeout(startGame, 3000)
     })
+
+  function startGame() {
+    readyText.style.display='none'
+    removeFirstSquare()
+    timer = setInterval(countDown, 1000)
+    scoreTick = setInterval(scoreDown, 30, 1)
+    fadeRandomSquare()
+  }
 
   function renderGuess(option) {
     optionEl = document.createElement('tr')
@@ -44,6 +56,8 @@ const game = function (difficulty) {
         stopGame()
       } else {
         console.log('Incorrect guess')
+        scoreDown(100)
+        event.target.style.color = 'red'
       }
     })
     document.getElementById("guess-table").appendChild(optionEl)
@@ -61,9 +75,15 @@ const game = function (difficulty) {
     }
   }
 
+  function scoreDown(n) {
+    score -= n
+    scoreDisplay.innerText = score
+  }
+
   function stopGame() {
     squares.forEach(square => square.style.opacity = 0)
     clearInterval(timer)
+    clearInterval(scoreTick)
     console.log('Game stopped')
   }
   

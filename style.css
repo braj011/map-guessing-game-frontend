@@ -41,6 +41,15 @@ h1 {
   background: white;
 }
 
+#ready {
+  position: absolute;
+  left: 170px;
+  top: 200px;
+  font-size: 2rem;
+  display: none;
+  z-index: 2;
+}
+
 /* top bar styling */
 
 #score-container {
@@ -164,6 +173,7 @@ h1 {
 td {
   padding-top: 12px;
 }
+
 
 #guess-table {
   width: 100%;
