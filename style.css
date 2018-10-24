@@ -1,51 +1,82 @@
 body {
-  /* background-image: url("http://bsnscb.com/data/out/118/39743314-london-wallpapers.jpg"); */
+  /* background-image: url("http://bsnscb.com/data/out/118/38900714-london-wallpapers.jpg"); */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F8DE7E;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.arcade-text {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.flash-text {
+
 }
 
 #main-container {
-  width: 600px;
-  height: 600px;
+  width: 480px;
+  height: 480px;
   margin: auto;
   display: flex;
   justify-content: center;
   position: relative;
-} 
+  border: solid black 10px;
+  border-radius: 10px;
+  background: white;
+}
+
+#score-container {
+  height: 30px;
+  width: 460px;
+  border: solid black 8px;
+  border-bottom: 0px;
+  border-radius: 5px;
+  background: black;
+  color: chartreuse;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0;
+}
 
 #map-container {
   display: relative;
 } 
 
 #map {
-  width: 600px;
-  height: 600px;
+  width: 480px;
+  height: 480px;
+  background: black;
 }
 
 #welcome-container {
   display: block;
-  width: fit-content;
-  justify-content: center;
+  width: 100%;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  background: black;
+  color: chartreuse;
+  font-size: 2rem;
 } 
 
 #welcome-username {
   display: flex;
   flex-flow: column nowrap;
-  padding: 2rem;
-  font-size: 4rem;
-  position: relative;
-  justify-content: center;
-  flex-direction: column;
+  position: relative; 
   align-items: center;
-  margin-bottom: 3rem;
   text-align: center;
   border: 2px solid black;
 } 
 
 .input {
-  border-color: blue; 
-  margin-bottom: 1rem; 
+  font-size: 1rem;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .radio-btns {
@@ -53,8 +84,8 @@ body {
 }
 
 .square {
-  height: 200px;
-  width: 200px;
+  height: 160px;
+  width: 160px;
   background-image: url('images/london-night.jpg');
   background-size: contain;
   opacity: 1;

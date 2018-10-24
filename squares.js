@@ -10,11 +10,11 @@ function displaySquares() {
     square.style.left = `${leftPos}px`
     square.style.top = `${topPos}px`
     square.style.opacity = 1;
-    if (leftPos === 400) {
+    if (leftPos === 320) {
       leftPos = 0
-      topPos += 200
+      topPos += 160
     } else {
-      leftPos += 200
+      leftPos += 160
     }
     mapContainer.appendChild(square)
     squares.push(square)

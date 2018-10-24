@@ -7,27 +7,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script defer src='API.js'></script>
   <script defer src='index.js'></script>
-  <script src='squares.js' defer></script>
+  <script defer src='squares.js'></script>
+  <script defer src='timer.js'></script>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link rel="shortcut icon" href="london_tube.png">
 </head>
 
 <body>
-  <h1>LDN Knowledge</h1>
-  <div id="main-container">
+  <h1 class="arcade-text">LDN Knowledge</h1>
 
+  <div id="score-container" class="arcade-text">
+    <div id="name-display">Player</div>
+    <div id="game-timer-display">40s</div>
+    <div id="game-score-display">100</div>
+  </div>
+
+  <div id="main-container">
     <div id="map-container">
       <img id="map" src=''/>
     </div>
 
     <div id="welcome-container">
       <div id="welcome-username">WELCOME!!
-        <input class = "input" type="text" placeholder="enter username..">
-        <div id="radio-btns">
-          <input type="radio" name="difficulty" value="easy"> Easy<br>
-          <input type="radio" name="difficulty" value="medium"> Medium<br>
-          <input type="radio" name="difficulty" value="hard"> Hard
-        </div>
+        <input class="input" type="text" id="name-input" placeholder="enter username.." autofocus>
+      </div>
+      <div id="radio-btns">
+        <input type="radio" name="difficulty" value="easy"> Easy<br>
+        <input type="radio" name="difficulty" value="medium"> Medium<br>
+        <input type="radio" name="difficulty" value="hard"> Hard
+      </div>
           <button id="submit-un-btn">GO!</button>
       </div>
     </div>
