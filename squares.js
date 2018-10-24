@@ -1,8 +1,6 @@
-const mapContainer = document.querySelector('#map-container')
-
 const squares = []
 
-function init() {
+function displaySquares() {
   let leftPos = 0
   let topPos = 0
 
@@ -12,11 +10,11 @@ function init() {
     square.style.left = `${leftPos}px`
     square.style.top = `${topPos}px`
     square.style.opacity = 1;
-    if (leftPos === 480) {
+    if (leftPos === 400) {
       leftPos = 0
-      topPos += 240
+      topPos += 200
     } else {
-      leftPos += 240
+      leftPos += 200
     }
     mapContainer.appendChild(square)
     squares.push(square)
@@ -48,5 +46,3 @@ function fadeRandomSquare() {
 function randomNum(limit) {
   return Math.floor(Math.random() * limit)
 }
-
-init()
