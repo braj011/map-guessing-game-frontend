@@ -44,7 +44,7 @@ h1 {
 #ready {
   position: absolute;
   left: 170px;
-  top: 200px;
+  top: 220px;
   font-size: 2rem;
   display: none;
   z-index: 2;

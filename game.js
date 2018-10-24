@@ -69,6 +69,8 @@ const game = function (difficulty) {
     if (seconds === 11) {
       timeDisplay.classList.add('blink')
     } else if (seconds === 0) {
+      score = 0
+      scoreDisplay.innerText = score
       timeDisplay.classList.remove('blink')
       console.log('Time ran out')
       stopGame()
@@ -78,6 +80,9 @@ const game = function (difficulty) {
   function scoreDown(n) {
     score -= n
     scoreDisplay.innerText = score
+    if (score < 0) {
+      stopGame()
+    }
   }
 
   function stopGame() {
