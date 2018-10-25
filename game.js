@@ -3,17 +3,8 @@ const game = function (difficulty) {
   const options = []
   const winner = {}
   let userScore = {}
-  const mapContainer = document.getElementById('map-main-container')
-
-  const subMapContainer = document.getElementById('map-container')
-  const welcomeContainer = document.getElementById('welcome-container')
-  const guessTable = document.getElementById('guess-table')
-
-  const timeDisplay = document.getElementById('game-timer-display')
-  const scoreDisplay = document.getElementById('game-score-display')
-  const readyText = document.getElementById('ready')
-  const answerText = document.getElementById('answer')
   const gameDifficulty = difficulty
+
   let timer
   let seconds = 30
   let scoreTick
@@ -29,12 +20,15 @@ const game = function (difficulty) {
       switch (gameDifficulty) {
         case "easy":
           zoom = 14
+          scoreDisplay.innerText = '1000'
           break
         case "medium":
           zoom = 15
+          scoreDisplay.innerText = '1500'
           break
         case "hard":
           zoom = 16
+          scoreDisplay.innerText = '2000'
           break
       }
       updateMap(lat, lon, zoom)
@@ -42,14 +36,16 @@ const game = function (difficulty) {
       options.forEach(renderGuess)
       mapOnWelcomeOff()
       readyText.style.display='block'
-      setTimeout(startGame, 3000)
+      setTimeout(startGame, 2500)
     })
 
   function startGame() {
-    readyText.style.display='none'
     removeFirstSquare()
-    timer = setInterval(countDown, 1000)
-    scoreTick = setInterval(scoreDown, 30, 1)
+    readyText.style.display='none'
+    setTimeout(() => { 
+      timer = setInterval(countDown, 500)
+      scoreTick = setInterval(scoreDown, 30, 1)
+    }, 1000)
     fadeRandomSquare()
   }
 
@@ -66,16 +62,9 @@ const game = function (difficulty) {
     answerText.style.display='block'
     setTimeout(() => answerText.classList.remove('blink'), 2000)
     timeDisplay.classList.remove('blink')
-    console.log('Game stopped')
     postScore()
-
     mapContainer.style.cursor='pointer'
-    mapContainer.addEventListener('click', () => {
-      mapOffWelcomeOn()
-      guessTable.innerHTML = ''
-      answerText.style.display='none'
-    })
-
+    mapContainer.addEventListener('click', mapOffWelcomeOn)
   }
 
   function postScore () {
@@ -84,6 +73,9 @@ const game = function (difficulty) {
     userScore['difficulty'] = gameDifficulty
     userScore['score'] = scoreDisplay.innerText
     API.postUserScore(userScore)
+      .then(response => {
+        // add scores to high score display
+      })
   }
 
   function renderGuess (option) {

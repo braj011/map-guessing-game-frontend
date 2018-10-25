@@ -62,6 +62,7 @@ h1 {
   z-index: 1.5;
   color: black;
   display: none;
+  width: 400px;
 }
 
 #play-again {
@@ -169,6 +170,7 @@ h1 {
 #guess-container {
   height: 480px;
   width: 320px;
+  min-width: 280px;
   background: black;
   border-radius: 10px;
   margin-left: 30px;

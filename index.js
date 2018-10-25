@@ -2,37 +2,47 @@ const style = '&format=png&maptype=roadmap&style=element:geometry%7Ccolor:0xebe3
 
 const nameDisplay = document.getElementById('name-display')
 const nameInput = document.getElementById('name-input')
-
-const getMapUrl = (lat, lon, zoom) =>
-  `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lon}&zoom=${zoom}&size=480x480&key=AIzaSyAvxJnHObvekYNouYlu3hOxPAG-nB17vC4${style}`
-
-const updateMap = (lat, lon, zoom) => {
-  const imgEl = document.querySelector('#map')
-  imgEl.src = getMapUrl(lat, lon, zoom)
-}
-
-// toggle mapContainer & welcomeContainer display
 const mapContainer = document.getElementById('map-container')
 const welcomeContainer = document.getElementById('welcome-container')
 const highScores = document.getElementById('high-scores')
 const guesses = document.getElementById('guesses')
+const answerText = document.getElementById('answer')
+const scoreDisplay = document.getElementById('game-score-display')
+const timeDisplay = document.getElementById('game-timer-display')
+const guessTable = document.getElementById('guess-table')
+const readyText = document.getElementById('ready')
 
-function mapOffWelcomeOn () {
-  mapContainer.style.display = 'none'
-  highScores.style.display = 'block'
-  guesses.style.display = 'none'
-  welcomeContainer.style.display = 'flex'
-  nameInput.focus()
-  mapContainer.removeEventListener()
+
+function getMapUrl(lat, lon, zoom) {
+  return `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lon}&zoom=${zoom}&size=480x480&key=AIzaSyAvxJnHObvekYNouYlu3hOxPAG-nB17vC4${style}`
 }
+
+function updateMap(lat, lon, zoom) {
+  const mapImage = document.querySelector('#map')
+  mapImage.src = getMapUrl(lat, lon, zoom)
+}
+
 function mapOnWelcomeOff () {
   displaySquares()
+  welcomeContainer.style.display = 'none'
+  mapContainer.style.display = 'flex'
   highScores.style.display = 'none'
   guesses.style.display = 'block'
-  mapContainer.style.display = 'flex'
-  welcomeContainer.style.display = 'none'
 }
 
+function mapOffWelcomeOn() {
+  answerText.style.display = 'none'
+  scoreDisplay.innerText = 'SCORE'
+  timeDisplay.innerText = '30s'
+  guessTable.innerHTML = ''
+  mapContainer.style.cursor = null
+  mapContainer.style.display = 'none'
+  welcomeContainer.style.display = 'flex'
+  highScores.style.display = 'block'
+  guesses.style.display = 'none'
+  nameInput.focus()
+  mapContainer.removeEventListener('click', mapOffWelcomeOn)
+}
 
 const difficultyContainer = document.getElementById('difficulty-container')
 difficultyContainer.addEventListener('click', event => {
