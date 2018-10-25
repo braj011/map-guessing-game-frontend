@@ -184,12 +184,15 @@ h1 {
   padding: 15px;
 }
 
-td {
-  padding-top: 12px;
+#guess-container td {
+  padding-bottom: 13px;
+}
+
+#score-table td {
+  padding-bottom: 15px;
 }
 
 .guess {
   cursor: pointer;
   font-size: 0.8rem;
 }
-

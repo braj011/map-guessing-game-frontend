@@ -8,6 +8,11 @@ class API {
       .then(resp => resp.json())
   }
 
+  static getHighScores() {
+    return fetch(this.baseUrl + 'scores')
+      .then(resp => resp.json())
+  }
+
   static postUserScore (userScore) {
     return fetch(this.baseUrl + 'scores', {
       method: 'POST',
