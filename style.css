@@ -64,6 +64,10 @@ h1 {
   display: none;
 }
 
+#play-again {
+  color: purple;
+}
+
 /* top bar styling */
 
 #score-container {

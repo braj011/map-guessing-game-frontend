@@ -22,6 +22,8 @@ function mapOffWelcomeOn () {
   highScores.style.display = 'block'
   guesses.style.display = 'none'
   welcomeContainer.style.display = 'flex'
+  nameInput.focus()
+  mapContainer.removeEventListener()
 }
 function mapOnWelcomeOff () {
   displaySquares()
@@ -31,7 +33,6 @@ function mapOnWelcomeOff () {
   welcomeContainer.style.display = 'none'
 }
 
-// submit username button - triggers mapOnWelcomeOff(), captures game difficulty, gets lat/lon from Heroku 
 
 const difficultyContainer = document.getElementById('difficulty-container')
 difficultyContainer.addEventListener('click', event => {

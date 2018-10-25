@@ -3,6 +3,12 @@ const game = function (difficulty) {
   const options = []
   const winner = {}
   let userScore = {}
+  const mapContainer = document.getElementById('map-main-container')
+
+  const subMapContainer = document.getElementById('map-container')
+  const welcomeContainer = document.getElementById('welcome-container')
+  const guessTable = document.getElementById('guess-table')
+
   const timeDisplay = document.getElementById('game-timer-display')
   const scoreDisplay = document.getElementById('game-score-display')
   const readyText = document.getElementById('ready')
@@ -55,12 +61,21 @@ const game = function (difficulty) {
     answerText.innerHTML = `
       <p>${winner.constituency}</p>
       <p>${winner.postcode}</p>
+      <p id="play-again">PLAY AGAIN?</p>
     `
     answerText.style.display='block'
     setTimeout(() => answerText.classList.remove('blink'), 2000)
     timeDisplay.classList.remove('blink')
     console.log('Game stopped')
     postScore()
+
+    mapContainer.style.cursor='pointer'
+    mapContainer.addEventListener('click', () => {
+      mapOffWelcomeOn()
+      guessTable.innerHTML = ''
+      answerText.style.display='none'
+    })
+
   }
 
   function postScore () {
