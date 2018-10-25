@@ -5,6 +5,8 @@ const game = function (difficulty) {
   const timeDisplay = document.getElementById('game-timer-display')
   const scoreDisplay = document.getElementById('game-score-display')
   const readyText = document.getElementById('ready')
+  const answerText = document.getElementById('answer')
+  const gameDifficulty = difficulty
   let timer
   let seconds = 30
   let scoreTick
@@ -17,7 +19,7 @@ const game = function (difficulty) {
       let lat = winner.latitude
       let lon = winner.longitude
       let zoom
-      switch (difficulty) {
+      switch (gameDifficulty) {
         case "easy":
           zoom = 14
           break
@@ -28,10 +30,11 @@ const game = function (difficulty) {
           zoom = 16
           break
       }
+      updateMap(lat, lon, zoom)
+      squares.forEach(square => square.style.opacity = 1)
+      options.forEach(renderGuess)
       mapOnWelcomeOff()
       readyText.style.display='block'
-      updateMap(lat, lon, zoom)
-      options.forEach(renderGuess)
       setTimeout(startGame, 3000)
     })
 
@@ -43,19 +46,35 @@ const game = function (difficulty) {
     fadeRandomSquare()
   }
 
+  function stopGame() {
+    clearInterval(timer)
+    clearInterval(scoreTick)
+    squares.forEach(square => square.style.opacity = 0)
+    answerText.classList.add('blink')
+    answerText.innerHTML = `
+      <p>${winner.constituency}</p>
+      <p>${winner.postcode}</p>
+    `
+    answerText.style.display='block'
+    setTimeout(() => answerText.classList.remove('blink'), 2000)
+    timeDisplay.classList.remove('blink')
+    console.log('Game stopped')
+  }
+
   function renderGuess(option) {
     optionEl = document.createElement('tr')
     optionEl.innerHTML = `
-      <td class="guess hvr-bounce-in" data-district="${option.district}">
-        ${option.district}
+      <td class="guess hvr-bounce-in" data-constituency="${option.constituency}">
+        ${option.constituency}
       </td>
     `
     optionEl.addEventListener('click', event => {
-      if (event.target.dataset.district === winner.district) {
+      if (event.target.dataset.constituency === winner.constituency) {
         console.log('User guessed correctly')
         stopGame()
       } else {
         console.log('Incorrect guess')
+        flashRed(scoreDisplay)
         scoreDown(100)
         event.target.style.color = 'red'
       }
@@ -80,16 +99,11 @@ const game = function (difficulty) {
   function scoreDown(n) {
     score -= n
     scoreDisplay.innerText = score
-    if (score < 0) {
-      stopGame()
-    }
   }
 
-  function stopGame() {
-    squares.forEach(square => square.style.opacity = 0)
-    clearInterval(timer)
-    clearInterval(scoreTick)
-    console.log('Game stopped')
+  function flashRed(text) {
+    text.style.color='red'
+    setTimeout(() => text.style.color='chartreuse', 200)
   }
   
 }

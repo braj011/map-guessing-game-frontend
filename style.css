@@ -1,9 +1,6 @@
 body {
   /* background-image: url("http://bsnscb.com/data/out/118/38900714-london-wallpapers.jpg"); */
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #F8DE7E;
   font-family: 'Press Start 2P', cursive;
   color: chartreuse;
@@ -12,28 +9,29 @@ body {
 
 h1 {
   color: black;
-  padding-top: 10px;
-}
-
-#whole-game-container {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center; 
   padding-top: 20px;
 }
 
-#main-game-container {
+.flex-center {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#whole-game-container {
+  flex-wrap: nowrap;
+  padding-top: 20px;
+  align-items: center;
+}
+
+#main-game-container {
+  flex-direction: column;
 }
 
 #map-main-container {
   width: 480px;
   height: 480px;
   margin: auto;
-  display: flex;
   position: relative;
   border: solid black 10px;
   color: chartreuse;
@@ -43,11 +41,27 @@ h1 {
 
 #ready {
   position: absolute;
-  left: 170px;
-  top: 220px;
   font-size: 2rem;
   display: none;
   z-index: 2;
+}
+
+.blink {
+  animation: blinker 0.8s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+#answer {
+  position: absolute;
+  font-size: 1.5rem;
+  z-index: 1.5;
+  color: black;
+  display: none;
 }
 
 /* top bar styling */
@@ -59,10 +73,7 @@ h1 {
   border-bottom: 0px;
   border-radius: 6px;
   background: black;
-  color: chartreuse;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 0 10px 0;
 }
 
@@ -103,20 +114,16 @@ h1 {
 /* name and difficulty select */
 #welcome-container {
   width: 100%;
-  display: flex;
+  height: 100%;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background: black;
-  color: chartreuse;
-  font-family: 'Press Start 2P', cursive;
   font-size: 2rem;
 } 
 
 .input {
   font-size: 1rem;
   padding: 15px;
-  margin-top: 10px;
+  margin-top: 20px;
   font-family: 'Press Start 2P', cursive;
   border: none;
   background: #253529;
@@ -130,7 +137,7 @@ h1 {
 }
 
 #difficulty-container {
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .difficulty {
@@ -156,27 +163,23 @@ h1 {
 /* guessing box */
 
 #guess-container {
-  height: 450px;
-  width: 250px;
+  height: 480px;
+  width: 320px;
   background: black;
   border-radius: 10px;
-  margin-left: 50px;
-  padding: 10px;
+  margin-left: 30px;
+  padding: 8px;
   box-sizing: border-box;
-  text-align: center;
+  margin-top: 40px;
 }
 
-#score-table {
+#guess-container table {
   width: 100%;
+  padding: 15px;
 }
 
 td {
   padding-top: 12px;
-}
-
-
-#guess-table {
-  width: 100%;
 }
 
 .guess {
@@ -184,12 +187,3 @@ td {
   font-size: 0.8rem;
 }
 
-.blink {
-  animation: blinker 0.8s step-start infinite;
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}

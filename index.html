@@ -15,25 +15,26 @@
 </head>
 
 <body>
-  <h1 class="arcade-text">LDN Knowledge</h1>
+  <h1>LDN Knowledge</h1>
 
-  <div id="whole-game-container">
+  <div id="whole-game-container" class="flex-center">
 
-    <div id="main-game-container">
-      <div id="score-container">
+    <div id="main-game-container" class="flex-center">
+      <div id="score-container" class="flex-center">
         <div id="name-display" class='col-3-left'>Player</div>
         <div id="game-timer-display" class='col-3'>30s</div>
         <div id="game-score-display" class='col-3-right'>1000</div>
       </div>
 
-      <div id="map-main-container">
+      <div id="map-main-container" class="flex-center">
         <div id='ready' class='blink'>READY</div>
+        <div id='answer' class='blink'></div>
         <div id="map-container">
           <img id="map" src=''/>
         </div>
-        <div id="welcome-container">
+        <div id="welcome-container" class="flex-center">
           <div id="welcome-username">WELCOME!!
-            <input class="input" type="text" id="name-input" placeholder="Name..?"  maxlength="8" autocomplete="off" autofocus required size="9">
+          <div><input class="input" type="text" id="name-input" placeholder="Name..?"  maxlength="6" autocomplete="off" autofocus required size="7"></div>
           </div>
           <div id="difficulty-container">
             <div id="easy" class="difficulty hvr-bounce-in">Easy</div>

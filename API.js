@@ -8,6 +8,5 @@ class API {
     return fetch(this.baseUrl + 'areas')
       .then(resp => resp.json())
   }
-
 }
 API.init()
