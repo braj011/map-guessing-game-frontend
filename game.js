@@ -2,6 +2,7 @@ const game = function (difficulty) {
 
   const options = []
   const winner = {}
+  let userScore = {}
   const timeDisplay = document.getElementById('game-timer-display')
   const scoreDisplay = document.getElementById('game-score-display')
   const readyText = document.getElementById('ready')
@@ -59,9 +60,18 @@ const game = function (difficulty) {
     setTimeout(() => answerText.classList.remove('blink'), 2000)
     timeDisplay.classList.remove('blink')
     console.log('Game stopped')
+    postScore()
   }
 
-  function renderGuess(option) {
+  function postScore () {
+    userScore['area_id'] = winner.id
+    userScore['username'] = nameDisplay.innerText
+    userScore['difficulty'] = gameDifficulty
+    userScore['score'] = scoreDisplay.innerText
+    API.postUserScore(userScore)
+  }
+
+  function renderGuess (option) {
     optionEl = document.createElement('tr')
     optionEl.innerHTML = `
       <td class="guess hvr-bounce-in" data-constituency="${option.constituency}">
@@ -96,12 +106,12 @@ const game = function (difficulty) {
     }
   }
 
-  function scoreDown(n) {
+  function scoreDown (n) {
     score -= n
     scoreDisplay.innerText = score
   }
 
-  function flashRed(text) {
+  function flashRed (text) {
     text.style.color='red'
     setTimeout(() => text.style.color='chartreuse', 200)
   }
