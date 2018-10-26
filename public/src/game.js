@@ -10,7 +10,7 @@ const game = function (difficulty) {
   let seconds = 30
   let scoreTick
   let score = 1000 * difficultyMultiplier()
-  const seed = randomNum(9) + 1
+  const seed = randomNum(7) + 3
 
   API.getRandomLocation(difficulty, seed)
     .then(data => { 
