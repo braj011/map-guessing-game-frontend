@@ -69,6 +69,7 @@ const game = function (difficulty) {
     userScore['difficulty'] = gameDifficulty
     userScore['score'] = score
     userScore['filename'] = filename
+    scoreTable.innerHTML = ''
     API.postUserScore(userScore)
       .then(response => {
         response['list'].forEach(score => renderScore(score, response['score']))
