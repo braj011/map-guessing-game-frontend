@@ -14,7 +14,6 @@ const timeDisplay = document.getElementById('game-timer-display')
 const guessTable = document.getElementById('guess-table')
 const readyText = document.getElementById('ready')
 
-
 function getMapUrl(lat, lon, zoom) {
   return `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lon}&zoom=${zoom}&size=480x480&key=AIzaSyAvxJnHObvekYNouYlu3hOxPAG-nB17vC4${style}`
 }
@@ -87,8 +86,7 @@ function renderScore(score, userScore=false) {
       <td>${score.username}</td>
       <td>${score.score}</td>
     `
-  if (userScore.username == score.username &&
-      userScore.score == score.score) {
+  if (score.rank === userScore.rank) {
         scoreEl.classList.add('blink')
       }
   scoreTable.appendChild(scoreEl)

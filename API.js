@@ -1,6 +1,7 @@
 class API {
   static init () {
-    this.baseUrl = 'https://map-guessing-game.herokuapp.com/api/v1/'
+    // this.baseUrl = 'https://map-guessing-game.herokuapp.com/api/v1/'
+    this.baseUrl = 'http://localhost:3000/api/v1/'
   }
 
   static getRandomLocation () {

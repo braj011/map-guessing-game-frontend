@@ -3,6 +3,7 @@ const game = function (difficulty) {
   const options = []
   const winner = {}
   const gameDifficulty = difficulty
+  let inProgress = false
 
   let timer
   let seconds = 30
@@ -18,7 +19,7 @@ const game = function (difficulty) {
       let zoom
       switch (gameDifficulty) {
         case "easy":
-          zoom = 15
+          zoom = 14
           break
         case "medium":
           zoom = 16
@@ -27,12 +28,12 @@ const game = function (difficulty) {
           zoom = 17
           break
       }
+      nameDisplay.innerText = nameInput.value
       updateMap(lat, lon, zoom)
       squares.forEach(square => square.style.opacity = 1)
       mapOnWelcomeOff()
       readyText.style.display='block'
       scoreDisplay.innerText = score
-      nameDisplay.innerText = nameInput.value
       setTimeout(startGame, 2500)
     })
 
@@ -44,11 +45,13 @@ const game = function (difficulty) {
       timer = setInterval(countDown, 1000)
       let tick = 30 / difficultyMultiplier()
       scoreTick = setInterval(scoreDown, tick, 1) 
+      inProgress = true
     }, 1000)
     fadeRandomSquare()
   }
 
   function stopGame() {
+    inProgress = false
     clearInterval(timer)
     clearInterval(scoreTick)
     guesses.style.display = 'none'
@@ -69,6 +72,10 @@ const game = function (difficulty) {
     document.addEventListener('keyup', keyRestart)
   }
 
+  function gameOn() {
+    return inProgress
+  }
+
   function postScore() {
     let userScore = {}
     userScore['area_id'] = winner.id
@@ -77,7 +84,8 @@ const game = function (difficulty) {
     userScore['score'] = score
     API.postUserScore(userScore)
       .then(response => {
-        response.forEach(score => renderScore(score, userScore))
+        response['list'].forEach(score => renderScore(score, response['score']))
+        console.log(response['list'], response['score'])
       })
   }
 
@@ -89,11 +97,10 @@ const game = function (difficulty) {
       </td>
     `
     optionEl.addEventListener('click', event => {
-      if (event.target.dataset.constituency === winner.constituency) {
+      if (inProgress && event.target.dataset.constituency === winner.constituency) {
         console.log('User guessed correctly')
         stopGame()
       } else {
-        console.log('Incorrect guess')
         flashRed(scoreDisplay)
         scoreDown(100*difficultyMultiplier())
         event.target.style.color = 'red'
@@ -105,13 +112,11 @@ const game = function (difficulty) {
   function countDown() {
     seconds--
     timeDisplay.innerText = `${seconds}s`
-    if (seconds === 11) {
+    if (seconds === 10) {
       timeDisplay.classList.add('blink')
     } else if (seconds === 0) {
-      score = 0
       scoreDisplay.innerText = score
       timeDisplay.classList.remove('blink')
-      console.log('Time ran out')
       stopGame()
     }
   }
@@ -135,6 +140,10 @@ const game = function (difficulty) {
       case "hard":
         return 2
     }
+  }
+
+  return {
+    gameOn
   }
   
 }
