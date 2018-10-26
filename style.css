@@ -1,5 +1,4 @@
 body {
-  /* background-image: url("http://bsnscb.com/data/out/118/38900714-london-wallpapers.jpg"); */
   text-align: center;
   background-color: #F8DE7E;
   font-family: 'Press Start 2P', cursive;
@@ -36,7 +35,6 @@ h1 {
   border: solid black 10px;
   color: chartreuse;
   border-radius: 10px;
-  background: white;
 }
 
 #ready {
@@ -147,7 +145,7 @@ h1 {
 
 .difficulty {
   cursor: pointer;
-  padding-top: 30px;
+  margin-top: 30px;
 }
 
 .hvr-bounce-in {

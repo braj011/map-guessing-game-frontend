@@ -4,8 +4,9 @@ class API {
     this.baseUrl = 'http://localhost:3000/api/v1/'
   }
 
-  static getRandomLocation () {
-    return fetch(this.baseUrl + 'areas')
+  static getRandomLocation (difficulty, seed) {
+    return fetch(this.baseUrl + 
+      `areas?difficulty=${difficulty}&seed=${seed}`)
       .then(resp => resp.json())
   }
 

@@ -4,32 +4,25 @@ const game = function (difficulty) {
   const winner = {}
   const gameDifficulty = difficulty
   let inProgress = false
+  let filename
 
   let timer
   let seconds = 30
   let scoreTick
   let score = 1000 * difficultyMultiplier()
+  const seed = randomNum(9) + 1
 
-  API.getRandomLocation()
+  API.getRandomLocation(difficulty, seed)
     .then(data => { 
-      options.push(...data)
-      Object.assign(winner, options[randomNum(options.length)])
-      let lat = winner.latitude
-      let lon = winner.longitude
-      let zoom
-      switch (gameDifficulty) {
-        case "easy":
-          zoom = 14
-          break
-        case "medium":
-          zoom = 16
-          break
-        case "hard":
-          zoom = 17
-          break
-      }
+      options.push(...data["areas"])
+      filename = data["filename"]
+      mask = parseInt(filename.substr(filename.length - 5)) / seed
+      console.log(mask)
+      console.log(options)
+      Object.assign(winner, options.find(option => option.id == mask))
+      console.log(winner)
+      mapImage.src = API.baseUrl + `images/${filename}`
       nameDisplay.innerText = nameInput.value
-      updateMap(lat, lon, zoom)
       squares.forEach(square => square.style.opacity = 1)
       mapOnWelcomeOff()
       readyText.style.display='block'
@@ -72,16 +65,13 @@ const game = function (difficulty) {
     document.addEventListener('keyup', keyRestart)
   }
 
-  function gameOn() {
-    return inProgress
-  }
-
   function postScore() {
     let userScore = {}
     userScore['area_id'] = winner.id
     userScore['username'] = nameDisplay.innerText
     userScore['difficulty'] = gameDifficulty
     userScore['score'] = score
+    userScore['filename'] = filename
     API.postUserScore(userScore)
       .then(response => {
         response['list'].forEach(score => renderScore(score, response['score']))
@@ -142,9 +132,5 @@ const game = function (difficulty) {
     }
   }
 
-  return {
-    gameOn
-  }
-  
 }
 
