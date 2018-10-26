@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LDN Knowledge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src='src/API.js'></script>
+  <script defer src='src/index.js'></script>
+  <script defer src='src/squares.js'></script>
+  <script defer src='src/game.js'></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon-192.png">
+</head>
+
+<body>
+  <h1>LDN Knowledge</h1>
+
+  <div id="whole-game-container" class="flex-center">
+
+    <div id="main-game-container" class="flex-center">
+      <div id="score-container" class="flex-center">
+        <div id="name-display" class='col-3-left'>PLAYER</div>
+        <div id="game-timer-display" class='col-3'>30s</div>
+        <div id="game-score-display" class='col-3-right'>SCORE</div>
+      </div>
+
+      <div id="map-main-container" class="flex-center">
+        <div id='ready' class='blink'>READY</div>
+        <div id='answer' class='blink'></div>
+        <div id="map-container">
+          <img id="map" src=''/>
+        </div>
+        <div id="welcome-container" class="flex-center">
+          <div id="welcome-username">WELCOME!!
+          <div><input class="input" type="text" id="name-input" placeholder="Name..?"  maxlength="6" autocomplete="off" autofocus required size="7"></div>
+          </div>
+          <div id="difficulty-container">
+            <div id="easy" class="difficulty hvr-bounce-in">Easy</div>
+            <div id="medium" class="difficulty hvr-bounce-in">Medium</div>
+            <div id="hard" class="difficulty hvr-bounce-in">Hard</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="guess-container">
+      
+      <div id="high-scores">
+        <h3>HIGH SCORES</h3>
+        <table id="score-table">
+        </table>
+      </div>
+
+      <div id="guesses" hidden>
+        <h3>WHERE??</h3>
+        <table id="guess-table">
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "map-guessing-game-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/braj011/map-guessing-game-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/braj011/map-guessing-game-frontend/issues"
+  },
+  "homepage": "https://github.com/braj011/map-guessing-game-frontend#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
