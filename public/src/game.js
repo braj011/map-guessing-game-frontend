@@ -72,7 +72,6 @@ const game = function (difficulty) {
     API.postUserScore(userScore)
       .then(response => {
         response['list'].forEach(score => renderScore(score, response['score']))
-        console.log(response['list'], response['score'])
       })
   }
 
