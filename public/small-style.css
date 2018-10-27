@@ -1,0 +1,101 @@
+@media only screen and (orientation:portrait){
+
+  #whole-game-container {
+   height: 100vw;
+   -webkit-transform: rotate(90deg);
+   -moz-transform: rotate(90deg);
+   -o-transform: rotate(90deg);
+   -ms-transform: rotate(90deg);
+   transform: rotate(90deg);
+   }
+}
+
+@media only screen and (max-height: 600px) {
+
+  h1 {
+    display: none;
+  }
+
+  h3 {
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+
+  #whole-game-container {
+    padding-top: 5px;
+  }
+
+  #map-main-container {
+    height: 300px;
+    width: 300px;
+    align-items: center;
+  }
+
+  #map-container {
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    object-fit: contain;
+  }
+
+  #map {
+    height: 100%;
+    width: 100%;
+    background: black;
+  }
+
+  .square {
+    height: 100px;
+    width: 100px;
+  }
+
+  #answer {
+    width: 200px;
+    font-size: 1.2rem;
+    position: relative;
+  }
+
+  #welcome-container {
+    font-size: 1.5rem;
+    z-index: 1;
+    position: relative;
+  }
+
+  #score-container {
+    width: 270px;
+    height: 20px;
+    font-size: 0.8em;
+  }
+
+  .difficulty {
+    margin-top: 20px;
+  }
+
+  #guess-container {
+    height: 330px;
+    width: 180px;
+    background: black;
+    border-radius: 10px;
+    margin-left: 25px;
+    padding: 6px;
+    box-sizing: border-box;
+    margin-top: 0px;
+  }
+
+  #guess-container table {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #guess-table td {
+    padding-bottom: 8px;
+    font-size: 0.65rem;
+  }
+
+  #score-table td {
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+  }
+
+}

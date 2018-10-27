@@ -1,28 +1,10 @@
 const squares = []
 
 function displaySquares() {
-  let leftPos = 0
-  let topPos = 0
   for (let i = 0; i < 9; i++) {
     let square = document.createElement('div')
     square.className = 'square'
-    square.style.left = `${leftPos}px`
-    square.style.top = `${topPos}px`
     square.style.opacity = 1;
-    let width
-    let mq = window.matchMedia("only screen and (max-height: 600px)");
-    if (mq.matches) {
-      width = 100
-    }
-    else {
-      width = 160
-    }
-    if (leftPos === 2 * width) {
-      leftPos = 0
-      topPos += width
-    } else {
-      leftPos += width
-    }
     mapContainer.appendChild(square)
     squares.push(square)
   }

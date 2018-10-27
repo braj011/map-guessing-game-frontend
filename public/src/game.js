@@ -64,12 +64,18 @@ const game = function (difficulty) {
   }
 
   function postScore() {
-    let userScore = {}
-    userScore['area_id'] = winner.id
-    userScore['username'] = nameDisplay.innerText
-    userScore['difficulty'] = gameDifficulty
-    userScore['score'] = score
-    userScore['filename'] = filename
+    let userScore = {
+      area_id: winner.id,
+      username: nameDisplay.innerText,
+      difficulty: gameDifficulty,
+      score,
+      filename
+    }
+    // userScore['area_id'] = winner.id
+    // userScore['username'] = nameDisplay.innerText
+    // userScore['difficulty'] = gameDifficulty
+    // userScore['score'] = score
+    // userScore['filename'] = filename
     API.postUserScore(userScore)
       .then(response => {
         response['list'].forEach(score => renderScore(score, response['score']))
