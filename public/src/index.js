@@ -45,7 +45,7 @@ function mapOffWelcomeOn() {
   scoreDisplay.innerText = 'SCORE'
   timeDisplay.innerText = '30s'
   guessTable.innerHTML = ''
-  scoreTable.innerHTML = ''
+
   showHighScores()
   mapContainer.style.cursor = null
   mapContainer.style.display = 'none'
@@ -66,7 +66,10 @@ function randomNum(limit) {
 
 function showHighScores() {
   API.getHighScores()
-    .then(data => data.forEach(renderScore))
+    .then( data => {
+      scoreTable.innerHTML = ''
+      data.forEach(renderScore)
+    })
 }
 
 function renderScore(score, userScore=false) {
@@ -83,3 +86,4 @@ function renderScore(score, userScore=false) {
 }
 
 showHighScores()
+

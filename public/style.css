@@ -8,7 +8,7 @@ body {
 
 h1 {
   color: black;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .flex-center {
@@ -19,7 +19,7 @@ h1 {
 
 #whole-game-container {
   flex-wrap: nowrap;
-  padding-top: 20px;
+  padding-top: 10px;
   align-items: center;
 }
 
@@ -33,8 +33,9 @@ h1 {
   margin: auto;
   position: relative;
   border: solid black 10px;
-  color: chartreuse;
   border-radius: 10px;
+  color: chartreuse;
+  background-size: contain;
 }
 
 #ready {
@@ -57,7 +58,7 @@ h1 {
 #answer {
   position: absolute;
   font-size: 1.5rem;
-  z-index: 1.5;
+  z-index: 3;
   color: black;
   display: none;
   width: 400px;
@@ -96,12 +97,11 @@ h1 {
 }
 
 /* map and overlay */
-#map-container {
-  display: relative;
-} 
+
 
 #map {
   background: black;
+  object-fit: contain;
 }
 
 .square {
@@ -193,4 +193,105 @@ h1 {
 .guess {
   cursor: pointer;
   font-size: 0.8rem;
+}
+
+@media only screen and (orientation:portrait){
+
+  #whole-game-container {
+   height: 100vw;
+   -webkit-transform: rotate(90deg);
+   -moz-transform: rotate(90deg);
+   -o-transform: rotate(90deg);
+   -ms-transform: rotate(90deg);
+   transform: rotate(90deg);
+   }
+}
+
+@media only screen and (max-height: 600px) {
+
+  h1 {
+    display: none;
+  }
+
+  h3 {
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+
+  #whole-game-container {
+    padding-top: 5px;
+  }
+
+  #map-main-container {
+    height: 300px;
+    width: 300px;
+    float: none;
+  }
+
+  #map-container {
+    object-fit: contain;
+    height: 300px;
+    width: 300px;
+    position: absolute;
+  }
+
+  #map {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: black;
+  }
+
+  .square {
+    height: 100px;
+    width: 100px;
+  }
+
+  #answer {
+    width: 150px;
+  }
+
+  #welcome-container {
+    font-size: 1.5rem;
+    z-index: 1;
+    position: relative;
+  }
+
+  #score-container {
+    width: 270px;
+    height: 20px;
+    font-size: 0.8em;
+  }
+
+  .difficulty {
+    margin-top: 20px;
+  }
+
+  #guess-container {
+    height: 330px;
+    width: 180px;
+    background: black;
+    border-radius: 10px;
+    margin-left: 25px;
+    padding: 6px;
+    box-sizing: border-box;
+    margin-top: 0px;
+  }
+
+  #guess-container table {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #guess-table td {
+    padding-bottom: 7px;
+    font-size: 0.7rem;
+  }
+
+  #score-table td {
+    padding-bottom: 8px;
+    font-size: 0.8rem;
+  }
+
 }

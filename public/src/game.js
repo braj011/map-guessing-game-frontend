@@ -16,9 +16,9 @@ const game = function (difficulty) {
     .then(data => { 
       options.push(...data["areas"])
       filename = data["filename"]
+      mapImage.src = `${API.baseUrl}images/${filename}`
       mask = parseInt(filename.substr(filename.length - 5)) / seed
       Object.assign(winner, options.find(option => option.id == mask))
-      mapImage.src = API.baseUrl + `images/${filename}`
       nameDisplay.innerText = nameInput.value
       squares.forEach(square => square.style.opacity = 1)
       mapOnWelcomeOff()
@@ -88,6 +88,7 @@ const game = function (difficulty) {
       } else {
         flashRed(scoreDisplay)
         scoreDown(100*difficultyMultiplier())
+        event.target.classList.remove('hvr-bounce-in')
         event.target.style.color = 'red'
       }
     })
