@@ -1,6 +1,7 @@
 const nameDisplay = document.getElementById('name-display')
 const nameInput = document.getElementById('name-input')
 const mapContainer = document.getElementById('map-container')
+const mainContainer = document.getElementById('main-game-container')
 const welcomeContainer = document.getElementById('welcome-container')
 const difficultyContainer = document.getElementById('difficulty-container')
 const highScores = document.getElementById('high-scores')
@@ -39,15 +40,16 @@ function mapOnWelcomeOff() {
 
 function mapOffWelcomeOn() {
   nameInput.addEventListener('keypress', startInput, true)
-  mapContainer.removeEventListener('click', mapOffWelcomeOn)
+  mainContainer.removeEventListener('click', mapOffWelcomeOn)
+  readyText.removeEventListener('click', mapOffWelcomeOn)
   document.removeEventListener('keyup', keyRestart)
   answerText.style.display = 'none'
   scoreDisplay.innerText = 'SCORE'
   timeDisplay.innerText = '30s'
   guessTable.innerHTML = ''
-  scoreTable.innerHTML = ''
+
   showHighScores()
-  mapContainer.style.cursor = null
+  mainContainer.style.cursor = null
   mapContainer.style.display = 'none'
   guesses.style.display = 'none'
   welcomeContainer.style.display = 'flex'
@@ -66,7 +68,10 @@ function randomNum(limit) {
 
 function showHighScores() {
   API.getHighScores()
-    .then(data => data.forEach(renderScore))
+    .then( data => {
+      scoreTable.innerHTML = ''
+      data.forEach(renderScore)
+    })
 }
 
 function renderScore(score, userScore=false) {
@@ -83,3 +88,4 @@ function renderScore(score, userScore=false) {
 }
 
 showHighScores()
+

@@ -16,9 +16,9 @@ const game = function (difficulty) {
     .then(data => { 
       options.push(...data["areas"])
       filename = data["filename"]
+      mapImage.src = `${API.baseUrl}images/${filename}`
       mask = parseInt(filename.substr(filename.length - 5)) / seed
       Object.assign(winner, options.find(option => option.id == mask))
-      mapImage.src = API.baseUrl + `images/${filename}`
       nameDisplay.innerText = nameInput.value
       squares.forEach(square => square.style.opacity = 1)
       mapOnWelcomeOff()
@@ -57,19 +57,20 @@ const game = function (difficulty) {
     answerText.style.display='block'
     setTimeout(() => answerText.classList.remove('blink'), 2000)
     timeDisplay.classList.remove('blink')
-    mapContainer.style.cursor='pointer'
-    mapContainer.addEventListener('click', mapOffWelcomeOn)
+    mainContainer.style.cursor='pointer'
+    mainContainer.addEventListener('click', mapOffWelcomeOn)
+    // readyText.addEventListener('click', mapOffWelcomeOn)
     document.addEventListener('keyup', keyRestart)
   }
 
   function postScore() {
-    let userScore = {}
-    userScore['area_id'] = winner.id
-    userScore['username'] = nameDisplay.innerText
-    userScore['difficulty'] = gameDifficulty
-    userScore['score'] = score
-    userScore['filename'] = filename
-    scoreTable.innerHTML = ''
+    let userScore = {
+      area_id: winner.id,
+      username: nameDisplay.innerText,
+      difficulty: gameDifficulty,
+      score,
+      filename
+    }
     API.postUserScore(userScore)
       .then(response => {
         response['list'].forEach(score => renderScore(score, response['score']))
@@ -89,6 +90,7 @@ const game = function (difficulty) {
       } else {
         flashRed(scoreDisplay)
         scoreDown(100*difficultyMultiplier())
+        event.target.classList.remove('hvr-bounce-in')
         event.target.style.color = 'red'
       }
     })

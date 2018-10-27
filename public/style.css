@@ -8,7 +8,16 @@ body {
 
 h1 {
   color: black;
+<<<<<<< HEAD
   padding-top: 5px;
+=======
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-bottom: 15px;
+>>>>>>> mobile
 }
 
 .flex-center {
@@ -19,7 +28,11 @@ h1 {
 
 #whole-game-container {
   flex-wrap: nowrap;
+<<<<<<< HEAD
   padding-top: 5px;
+=======
+  padding-top: 10px;
+>>>>>>> mobile
   align-items: center;
 }
 
@@ -33,8 +46,25 @@ h1 {
   margin: auto;
   position: relative;
   border: solid black 10px;
-  color: chartreuse;
   border-radius: 10px;
+  color: chartreuse;
+  background-size: contain;
+}
+
+#map-container {
+  display: flex;
+  flex-flow: row wrap;
+  position: absolute;
+  object-fit: contain;
+}
+
+.square {
+  height: 160px;
+  width: 160px;
+  background-image: url('images/london-night.jpg');
+  background-size: contain;
+  opacity: 1;
+  z-index: 1;
 }
 
 #ready {
@@ -57,7 +87,7 @@ h1 {
 #answer {
   position: absolute;
   font-size: 1.5rem;
-  z-index: 1.5;
+  z-index: 3;
   color: black;
   display: none;
   width: 400px;
@@ -96,23 +126,15 @@ h1 {
 }
 
 /* map and overlay */
-#map-container {
-  display: relative;
-} 
+
 
 #map {
   background: black;
-}
-
-.square {
-  height: 160px;
-  width: 160px;
-  background-image: url('images/london-night.jpg');
-  background-size: contain;
-  opacity: 1;
-  z-index: 1;
+  object-fit: contain;
   position: absolute;
 }
+
+
 
 /* name and difficulty select */
 #welcome-container {
