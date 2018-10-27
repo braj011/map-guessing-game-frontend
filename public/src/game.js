@@ -57,8 +57,9 @@ const game = function (difficulty) {
     answerText.style.display='block'
     setTimeout(() => answerText.classList.remove('blink'), 2000)
     timeDisplay.classList.remove('blink')
-    mapContainer.style.cursor='pointer'
-    mapContainer.addEventListener('click', mapOffWelcomeOn)
+    mainContainer.style.cursor='pointer'
+    mainContainer.addEventListener('click', mapOffWelcomeOn)
+    // readyText.addEventListener('click', mapOffWelcomeOn)
     document.addEventListener('keyup', keyRestart)
   }
 
