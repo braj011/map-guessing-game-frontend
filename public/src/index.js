@@ -33,7 +33,7 @@ function mapOnWelcomeOff() {
   displaySquares()
   scoreTable.innerHTML = ''
   welcomeContainer.style.display = 'none'
-  mapContainer.style.display = 'flex'
+  mapContainer.style.display='flex'
   highScores.style.display = 'none'
   guesses.style.display = 'block'
 }
@@ -41,13 +41,11 @@ function mapOnWelcomeOff() {
 function mapOffWelcomeOn() {
   nameInput.addEventListener('keypress', startInput, true)
   mainContainer.removeEventListener('click', mapOffWelcomeOn)
-  readyText.removeEventListener('click', mapOffWelcomeOn)
   document.removeEventListener('keyup', keyRestart)
   answerText.style.display = 'none'
   scoreDisplay.innerText = 'SCORE'
   timeDisplay.innerText = '30s'
   guessTable.innerHTML = ''
-
   showHighScores()
   mainContainer.style.cursor = null
   mapContainer.style.display = 'none'

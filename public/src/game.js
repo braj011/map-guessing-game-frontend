@@ -59,7 +59,6 @@ const game = function (difficulty) {
     timeDisplay.classList.remove('blink')
     mainContainer.style.cursor='pointer'
     mainContainer.addEventListener('click', mapOffWelcomeOn)
-    // readyText.addEventListener('click', mapOffWelcomeOn)
     document.addEventListener('keyup', keyRestart)
   }
 

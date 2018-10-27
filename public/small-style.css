@@ -52,6 +52,11 @@
     height: 20px;
     font-size: 0.8em;
   }
+  
+  #map-container {
+    position: absolute;
+    object-fit: contain;
+  }
 
   #welcome-container {
     font-size: 1.5rem;
@@ -65,7 +70,7 @@
 
   #guess-container {
     height: 330px;
-    width: 180px;
+    width: 230px;
     margin-left: 25px;
     padding: 6px;
     margin-top: 0px;
@@ -84,6 +89,79 @@
   #score-table td {
     padding-bottom: 10px;
     font-size: 0.8rem;
+  }
+
+}
+
+@media only screen and (max-height: 400px) {
+
+  h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0px;
+  }
+
+  #map-main-container {
+    height: 240px;
+    width: 240px;
+  }
+
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+
+  .square {
+    height: 80px;
+    width: 80px;
+  }
+
+  .input {
+    font-size: 0.8rem;
+    padding: 12px;
+    margin-top: 20px;
+  }
+
+  #answer {
+    width: 120px;
+    font-size: 0.8rem;
+  }
+
+  #score-container {
+    width: 220px;
+    height: 15px;
+    font-size: 0.65em;
+  }
+
+  #welcome-container {
+    font-size: 1rem;
+  }
+
+  .difficulty {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  #guess-container {
+    height: 270px;
+    width: 180px;
+    margin-left: 20px;
+    padding: 6px;
+    margin-top: 0px;
+  }
+
+  #guess-container table {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #guess-table td {
+    padding-bottom: 5px;
+    font-size: 0.5rem;
+  }
+
+  #score-table td {
+    padding-bottom: 8px;
+    font-size: 0.6rem;
   }
 
 }

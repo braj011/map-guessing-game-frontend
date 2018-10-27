@@ -1,6 +1,10 @@
 const squares = []
 
 function displaySquares() {
+  let currentSquares = mapContainer.getElementsByClassName('square')
+  while (currentSquares[0]) {
+    mapContainer.removeChild(currentSquares[0])
+  }
   for (let i = 0; i < 9; i++) {
     let square = document.createElement('div')
     square.className = 'square'
