@@ -52,7 +52,6 @@ function mapOffWelcomeOn() {
   guesses.style.display = 'none'
   welcomeContainer.style.display = 'flex'
   highScores.style.display = 'block'
-  nameInput.focus()
 }
 
 function keyRestart(event) {
