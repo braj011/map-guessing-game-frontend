@@ -23,26 +23,17 @@
   }
 
   #whole-game-container {
-    padding-top: 5px;
+    padding-top: 8px;
   }
 
   #map-main-container {
     height: 300px;
     width: 300px;
-    align-items: center;
-  }
-
-  #map-container {
-    height: 300px;
-    width: 300px;
-    position: absolute;
-    object-fit: contain;
   }
 
   #map {
     height: 100%;
     width: 100%;
-    background: black;
   }
 
   .square {
@@ -56,16 +47,16 @@
     position: relative;
   }
 
-  #welcome-container {
-    font-size: 1.5rem;
-    z-index: 1;
-    position: relative;
-  }
-
   #score-container {
     width: 270px;
     height: 20px;
     font-size: 0.8em;
+  }
+
+  #welcome-container {
+    font-size: 1.5rem;
+    z-index: 1;
+    position: relative;
   }
 
   .difficulty {
@@ -75,11 +66,8 @@
   #guess-container {
     height: 330px;
     width: 180px;
-    background: black;
-    border-radius: 10px;
     margin-left: 25px;
     padding: 6px;
-    box-sizing: border-box;
     margin-top: 0px;
   }
 
