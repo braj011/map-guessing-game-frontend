@@ -85,4 +85,3 @@ function renderScore(score, userScore=false) {
 }
 
 showHighScores()
-

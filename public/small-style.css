@@ -1,4 +1,4 @@
-@media only screen and (orientation:portrait){
+@media only screen and (orientation:portrait) {
 
   #whole-game-container {
    height: 100vw;
@@ -17,13 +17,13 @@
   }
 
   h3 {
-    margin-top: 12px;
+    margin-top: 10px;
     margin-bottom: 5px;
     font-size: 1rem;
   }
 
   #whole-game-container {
-    padding-top: 8px;
+    padding-top: 6px;
   }
 
   #map-main-container {
@@ -49,7 +49,7 @@
 
   #score-container {
     width: 270px;
-    height: 20px;
+    height: 15px;
     font-size: 0.8em;
   }
   
@@ -98,6 +98,7 @@
   h3 {
     font-size: 0.8rem;
     margin-bottom: 0px;
+    margin-top: 8px;
   }
 
   #map-main-container {
@@ -128,7 +129,7 @@
 
   #score-container {
     width: 220px;
-    height: 15px;
+    height: 12px;
     font-size: 0.65em;
   }
 
