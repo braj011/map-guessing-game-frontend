@@ -20,7 +20,7 @@ const startInput = function(event) {
   } else if (event.keyCode === 13 && scoreDisplay.innerText === 'SCORE') {
     nameInput.removeEventListener('keypress', startInput, true)
     game("easy")
-  } else if (event.target.classList.contains('difficulty')) {
+  } else if (event.target.classList.contains('difficulty') && scoreDisplay.innerText === 'SCORE') {
     selectedDif = event.target.id
     game(selectedDif)
   }

@@ -10,6 +10,7 @@ const game = function (difficulty) {
   let seconds = 30
   let scoreTick
   let score = 1000 * difficultyMultiplier()
+  scoreDisplay.innerText = score
   const seed = randomNum(7) + 3
 
   API.getRandomLocation(difficulty, seed)
@@ -23,7 +24,6 @@ const game = function (difficulty) {
       squares.forEach(square => square.style.opacity = 1)
       mapOnWelcomeOff()
       readyText.style.display='block'
-      scoreDisplay.innerText = score
       setTimeout(startGame, 2500)
     })
 
