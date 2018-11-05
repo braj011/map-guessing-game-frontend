@@ -72,6 +72,7 @@ const game = function (difficulty) {
     }
     API.postUserScore(userScore)
       .then(response => {
+        scoreTable.innerHTML = ''
         response['list'].forEach(score => renderScore(score, response['score']))
       })
   }
