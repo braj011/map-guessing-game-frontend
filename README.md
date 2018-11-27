@@ -5,4 +5,6 @@
 
 Game live at http://ldn-knowledge.herokuapp.com/ - the backend will take a few seconds to wake up on first play. It is playable once the high scores are displayed.
 
+![alt text](https://github.com/CiaranMn/map-guessing-game-backend/raw/master/demo.gif)
+
 ## MORE DETAILS COMING SOON!
