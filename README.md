@@ -46,6 +46,3 @@ Styling is in **public/style.css** with some basic breakpoints in public/small-s
 
 N.B. CORS is set on the backend to only allow requests from the frontend deployment at ldn-knowledge.herokuapp.com and so the game will not work elsewhere without a copy of the backend (or without spoofing the origin of requests).
 
-
-
-## MORE DETAILS COMING SOON!
