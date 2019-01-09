@@ -1,4 +1,4 @@
-# map-guessing-game-frontend (LDN Knowledge)
+# LDN Knowledge Frontend (map-guessing-game)
 
 
 ## test your knowledge of London... improve it... or just guess wildly for fun!
